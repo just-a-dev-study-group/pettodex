@@ -11,6 +11,7 @@ git clone https://github.com/just-a-dev-study-group/pettodex.git
 Step #2: Install dependencies
 
 ```bash
+cd pettodex/
 npm install
 ```
 
