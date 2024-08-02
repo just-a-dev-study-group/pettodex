@@ -2,23 +2,28 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Step #1: Clone the repository
+
+```bash
+git clone https://github.com/just-a-dev-study-group/pettodex.git
+```
+
+Step #2: Install dependencies
+
+```bash
+cd pettodex/
+npm install
+```
+
+Step #3: Run the local development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
+Step #4: Open the project in the browser
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 
