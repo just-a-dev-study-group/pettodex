@@ -1,14 +1,15 @@
-import LogoutButton from "@/components/logout-button";
+import LoginButton from "@/components/login-button";
 import SampleActionButton from "@/components/sample-action-button";
 import SampleProtectedActionButton from "@/components/sample-protected-action-button";
+import React from "react";
 
-export default function Home() {
+const Page = () => {
   return (
-    <main className="p-24">
-      <div>welcome to pettodex home page!</div>
+    <div>
+      <div>login page</div>
 
       <div>
-        <LogoutButton />
+        <LoginButton />
       </div>
 
       <div>
@@ -18,6 +19,8 @@ export default function Home() {
       <div>
         <SampleProtectedActionButton />
       </div>
-    </main>
+    </div>
   );
-}
+};
+
+export default Page;
