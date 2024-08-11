@@ -4,7 +4,7 @@ import SampleProtectedActionButton from "@/components/sample-protected-action-bu
 
 export default function Home() {
   return (
-    <main className="p-24">
+    <main>
       <div>welcome to pettodex home page!</div>
 
       <div>

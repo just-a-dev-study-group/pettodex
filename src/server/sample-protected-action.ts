@@ -1,6 +1,6 @@
 "use server";
 
-import { serverConfig } from "@/libs/firebase/firebase-server";
+import { serverConfig } from "@/lib/firebase/firebase-server";
 import { getTokens } from "next-firebase-auth-edge";
 import { cookies } from "next/headers";
 
