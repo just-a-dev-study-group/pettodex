@@ -10,7 +10,7 @@ import {
   redirectToHome,
   redirectToLogin,
 } from "next-firebase-auth-edge";
-import { serverConfig } from "@/libs/firebase/firebase-server";
+import { serverConfig } from "@/lib/firebase/firebase-server";
 import APP_ROUTES from "@/constants/app-routes";
 
 const PUBLIC_PATHS: string[] = [APP_ROUTES.LOGIN];

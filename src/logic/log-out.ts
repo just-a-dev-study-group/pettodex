@@ -2,7 +2,7 @@
  * Code reference: https://github.com/awinogrodzki/next-firebase-auth-edge/blob/main/examples/next-typescript-minimal/app/HomePage.tsx#L14
  */
 
-import { clientAuth } from "@/libs/firebase/firebase-client";
+import { clientAuth } from "@/lib/firebase/firebase-client";
 import { signOut } from "firebase/auth";
 
 const logOut = async () => {

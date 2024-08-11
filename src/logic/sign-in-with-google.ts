@@ -1,4 +1,4 @@
-import { clientApp, clientAuth } from "@/libs/firebase/firebase-client";
+import { clientApp, clientAuth } from "@/lib/firebase/firebase-client";
 import {
   GoogleAuthProvider,
   getAuth,
