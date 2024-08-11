@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import sampleProtectedAction from "@/server/sample-protected-action";
 import React from "react";
 
@@ -10,7 +11,7 @@ const SampleProtectedActionButton = () => {
     console.log(result);
   };
 
-  return <button onClick={handleAction}>Sample Protected Action Button</button>;
+  return <Button onClick={handleAction}>Sample Protected Action Button</Button>;
 };
 
 export default SampleProtectedActionButton;

@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import APP_ROUTES from "@/constants/app-routes";
 import signInWithGoogle from "@/logic/sign-in-with-google";
 import { useRouter } from "next/navigation";
@@ -14,7 +15,7 @@ const LoginButton = () => {
     router.push(APP_ROUTES.HOME);
   };
 
-  return <button onClick={handleLogin}>Log in with Google</button>;
+  return <Button onClick={handleLogin}>Log in with Google</Button>;
 };
 
 export default LoginButton;
