@@ -4,13 +4,9 @@ import {Button} from "@/components/ui/button";
 
 const Pets = () => {
 
-    const fetchPets = async () => {
+    const handleGetAllEntities =  async () => {
         const pets = await getAllEntities();
         console.log(pets);
-    };
-    const handleGetAllEntities =  () => {
-        fetchPets()
-        console.log('fetchPets')
     };
 
 
@@ -18,7 +14,7 @@ const Pets = () => {
         <div>
             <h1>Pets</h1>
             <Button onClick={handleGetAllEntities}>Get All Pets</Button>
-            </div>
+        </div>
     );
 }
 
