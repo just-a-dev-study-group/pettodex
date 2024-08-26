@@ -8,6 +8,7 @@ export interface PetEntity extends Entity {
   owner_id: string;
   sex: string;
   color: string;
+  imageUrl: string;
 }
 
 export interface SubmitPetEntityRequestDto {

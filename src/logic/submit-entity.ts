@@ -2,6 +2,7 @@
 
 import { db } from "@/lib/firebase/firebase-admin";
 import { PetEntity } from "@/types/entity.types";
+import { put } from "@vercel/blob";
 
 const submitPetEntity = async (formData: FormData) => {
   try {
@@ -19,7 +20,19 @@ const submitPetEntity = async (formData: FormData) => {
       owner_id: "", // This needs to be determined or provided
       sex: "", // This needs to be determined or provided
       color: "", // This needs to be determined or provided
+      imageUrl: "", // This needs to be determined or provided
     };
+
+    if (imageFile) {
+      const blob = await imageFile.arrayBuffer();
+      const originalFileType = imageFile.type.split("/").pop();
+      const { url } = await put(`${newId}.${originalFileType}`, blob, {
+        access: "public",
+        contentType: imageFile.type,
+      });
+
+      petData.imageUrl = url;
+    }
 
     // TODO: Handle image file upload (imageFile)
 
