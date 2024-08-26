@@ -4,6 +4,7 @@ import { db } from "@/lib/firebase/firebase-admin";
 import { validateAuth } from "@/server/utils/validate-auth";
 import { PetEntity } from "@/types/entity.types";
 import { put } from "@vercel/blob";
+import sharp from "sharp";
 
 const submitPetEntity = async (formData: FormData) => {
   try {
@@ -15,8 +16,6 @@ const submitPetEntity = async (formData: FormData) => {
 
     // Generate a new ID for the pet entity
     const newId = db.collection("entity").doc().id;
-
-    tokens.decodedToken.uid;
 
     // Process the form data
     const petData: PetEntity = {
@@ -32,10 +31,14 @@ const submitPetEntity = async (formData: FormData) => {
     // Upload the image file to the Vercel Blob storage
     if (imageFile) {
       const blob = await imageFile.arrayBuffer();
-      const originalFileType = imageFile.type.split("/").pop();
-      const { url } = await put(`${newId}.${originalFileType}`, blob, {
+      const buffer = Buffer.from(blob);
+
+      // Compress the image
+      const compressedBuffer = await compressImage(buffer);
+
+      const { url } = await put(`${newId}.webp`, compressedBuffer, {
         access: "public",
-        contentType: imageFile.type,
+        contentType: "image/webp",
       });
 
       petData.imageUrl = url;
@@ -48,5 +51,23 @@ const submitPetEntity = async (formData: FormData) => {
     return { success: false, error: "Failed to create pet entity" };
   }
 };
+
+// Function to compress image using sharp
+async function compressImage(
+  buffer: Buffer,
+  quality: number = 80,
+  maxWidth: number = 800,
+  maxHeight: number = 600
+): Promise<Buffer> {
+  return sharp(buffer)
+    .resize({
+      width: maxWidth,
+      height: maxHeight,
+      fit: "inside",
+      withoutEnlargement: true,
+    })
+    .webp({ quality, effort: 6 }) // Increased compression effort
+    .toBuffer();
+}
 
 export default submitPetEntity;
