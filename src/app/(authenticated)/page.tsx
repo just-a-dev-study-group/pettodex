@@ -4,6 +4,7 @@ import LogoutButton from "@/components/logout-button";
 import { useState, FormEvent } from "react";
 import Image from "next/image";
 import submitPetEntity from "@/logic/submit-entity";
+import NavBar from "@/components/nav-bar";
 
 export default function Home() {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
@@ -54,7 +55,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-4">
+    <main className="flex flex-col items-center justify-center min-h-screen p-4 border-1 border-red-400">
       <h1 className="text-3xl font-bold mb-8">Pettodex</h1>
 
       <form onSubmit={handleSubmit} className="w-full max-w-md">
