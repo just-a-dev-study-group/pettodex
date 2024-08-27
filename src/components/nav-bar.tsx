@@ -1,19 +1,9 @@
 "use client"
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
-import {useRouter} from "next/navigation";
 
 
 const NavBar = () => {
-    const router = useRouter();
-
-    const handleBrowsePets = async () => {
-        await router.push("/pets");
-    }
-
-    const handleSubmitPet = async () => {
-        await router.push("/");
-    }
 
     return(
         <nav>
