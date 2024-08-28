@@ -26,6 +26,8 @@ const submitPetEntity = async (formData: FormData) => {
       species_id: "", // This needs to be determined or provided
       sex: "", // This needs to be determined or provided
       color: "", // This needs to be determined or provided
+      createdAt: new Date().toISOString(),
+      imageUrl: "", // This needs to be determined or provided
     };
 
     // Upload the image file to the Vercel Blob storage
