@@ -43,6 +43,26 @@ const submitPetEntity = async (formData: FormData) => {
       });
 
       petData.imageUrl = url;
+
+      // Send a post request to identify the pet
+      const response = await fetch(
+        "https://h4md7j42-8000.asse.devtunnels.ms/identify/single",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ url }),
+        }
+      );
+
+      const identificationData = await response.text();
+
+      if (!response.ok) {
+        throw new Error("Failed to identify the pet");
+      }
+
+      petData.species_id = identificationData;
     }
 
     await db.collection("entity").doc(newId).set(petData);
