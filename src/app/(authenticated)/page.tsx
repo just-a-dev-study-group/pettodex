@@ -3,8 +3,8 @@
 import LogoutButton from "@/components/logout-button";
 import { useState, FormEvent } from "react";
 import Image from "next/image";
-import submitPetEntity from "@/logic/submit-entity";
 import NavBar from "@/components/nav-bar";
+import submitPetEntity from "@/server/submit-entity";
 
 export default function Home() {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
